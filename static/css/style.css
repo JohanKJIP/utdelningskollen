@@ -18,8 +18,9 @@ ul {
     display: table;
     margin: 0 auto;
     list-style:none;
-    height: 250px;
-    width: 80%;
+    padding-right: 35px;
+    height: 200px;
+    width: 70%;
     text-align: center;
 }
 

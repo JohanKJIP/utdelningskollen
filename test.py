@@ -83,5 +83,5 @@ def organic_growth():
 
 if __name__ == "__main__":
     data = open_data(file_name='trans.csv')
-    bar_representation(data)
-    #accumulated(data)
+    #bar_representation(data)
+    accumulated(data)

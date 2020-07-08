@@ -4,6 +4,7 @@
 <script src="{{ url_for('static', filename='js/papaparse.min.js') }}"></script> 
 <script src="{{ url_for('static', filename='js/functions.js') }}"></script> 
 <script src="{{ url_for('static', filename='js/Chart.bundle.min.js') }}"></script> 
+<link rel=icon href="{{ url_for('static', filename='images/favicon.ico') }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Utdelningskollen</title>
 <h1>Utdelningskollen</h1>
@@ -19,7 +20,7 @@
             <canvas class="chart" id="yearly-divs" width="200" height="350"></canvas>
         </li>
         <li>
-            <canvas class="chart" id="accumulated-divs" width="200" height="350"></canvas>
+            <canvas class="chart" id="moving-avg-divs" width="200" height="350"></canvas>
         </li>
     </ul>
 </div>
