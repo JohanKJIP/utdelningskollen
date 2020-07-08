@@ -73,4 +73,8 @@ ul {
     margin: 0 auto;
 }
 
+#chart-container {
+    display: none;
+}
+
   

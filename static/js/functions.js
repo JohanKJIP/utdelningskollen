@@ -4,7 +4,7 @@ window.onload = function() {
     inputElement.onchange = function(event) {
         var fileList = inputElement.files;
         parseFile(fileList[0]);
-        //document.getElementById("input-container").style.visibility = "hidden";
+        document.getElementById("chart-container").style.display = "inline";
     }
 }
 
@@ -84,6 +84,10 @@ function yearlyDividends(data) {
     });
 }
 
+/**
+ * Compute total received dividends for each month.
+ * @param {*} data 
+ */
 function sumMonth(data) {
     result = {};
     for (var i = 0; i < data.length; i++) {
@@ -101,6 +105,10 @@ function sumMonth(data) {
     return result;
 }
 
+/**
+ * Display 12 month moving average.
+ * @param {*} data 
+ */
 function movingAverage(data) {
     var result = sumMonth(data);
     var labels = [];
@@ -133,7 +141,7 @@ function movingAverage(data) {
                 sum += datapoints[i-j]['y'];
             }
         }
-        movingAvg[i] = sum/factor;
+        movingAvg[i] = round(sum/factor);
     }
 
     // draw chart
