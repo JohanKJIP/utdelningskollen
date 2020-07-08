@@ -1,0 +1,25 @@
+<!doctype html>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+<script src="{{ url_for('static', filename='js/papaparse.min.js') }}"></script> 
+<script src="{{ url_for('static', filename='js/functions.js') }}"></script> 
+<script src="{{ url_for('static', filename='js/Chart.bundle.min.js') }}"></script> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Utdelningskollen</title>
+<h1>Utdelningskollen</h1>
+<div id="input-container">
+    <p>Välj utdelningsfil från Avanza att analysera. Filen används endast lokalt och laddas därmed INTE upp på någon server.</p>
+    <input type="file" id="myfile" name="myfile" class="inputfile"> 
+    <label for="myfile">Choose File</label>
+</div>
+
+<div id="chart-container">
+    <ul>
+        <li>
+            <canvas class="chart" id="yearly-divs" width="200" height="350"></canvas>
+        </li>
+        <li>
+            <canvas class="chart" id="accumulated-divs" width="200" height="350"></canvas>
+        </li>
+    </ul>
+</div>

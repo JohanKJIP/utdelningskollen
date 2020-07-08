@@ -1,0 +1,75 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgb(238, 238, 238);
+}
+
+h1 {
+    padding: 20px;
+    display: table;
+    margin: 0 auto;
+}
+
+ul {
+    display: table;
+    margin: 0 auto;
+    list-style:none;
+    height: 250px;
+    width: 80%;
+    text-align: center;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    display: table;
+    margin: 0 auto;
+    font-size: 1em;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(145, 156, 255);
+    display: inline-block;
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: rgb(102, 117, 255);
+}
+
+.chart {
+    padding: 20px 0;
+}
+
+#input-container {
+    display: table;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 20px;
+    width: 30%;
+    height: 100px;
+    background-color:rgb(255, 255, 255);
+    border-radius: 5px;
+    border: solid 1px grey;
+    text-align: center;
+}
+
+#input-container > input {
+    display: table;
+    margin: 0 auto;
+}
+
+  
