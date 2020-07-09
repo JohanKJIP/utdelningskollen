@@ -80,6 +80,26 @@ function yearlyDividends(data) {
                     display: true,
                     text: 'Utdelning per år',         
                 },
+                scales: { 
+                    yAxes: [
+                        {
+                            ticks: {
+                                callback: function(label, index, labels) {
+                                    return label/1000+'k';
+                                }
+                            },
+                        }
+                    ]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function(tooltipItems, data) { 
+                            return tooltipItems.yLabel + ' SEK';
+                        }
+                    }
+                },
         },
     });
 }
@@ -174,13 +194,31 @@ function movingAverage(data) {
                 xAxes: [{
                     type: 'time',
                     time: {
+                        tooltipFormat: 'll',
                         displayFormats: {
                             quarter: 'MMM YYYY'
                         }
                     }
-                }]
-    
-            }
+                }],
+                yAxes: [
+                    {
+                        ticks: {
+                            callback: function(label, index, labels) {
+                                return label/1000+'k';
+                            }
+                        },
+                    }
+                ]
+            },
+            tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                    label: function(tooltipItems, data) { 
+                        return tooltipItems.yLabel + ' SEK';
+                    }
+                }
+            },
         }
     });
 }
@@ -220,10 +258,29 @@ function accumulative(data) {
                 xAxes: [{
                     type: 'time',
                     time: {
-                        unit: 'month'
+                        unit: 'month',
+                        tooltipFormat: 'll'
                     }
-                }]
-            }
+                }],
+                yAxes: [
+                    {
+                        ticks: {
+                            callback: function(label, index, labels) {
+                                return label/1000+'k';
+                            }
+                        },
+                    }
+                ],
+            },
+            tooltips: {
+                enabled: true,
+                mode: 'single',
+                callbacks: {
+                    label: function(tooltipItems, data) { 
+                        return tooltipItems.yLabel + ' SEK';
+                    }
+                }
+            },
         }
     });
 
