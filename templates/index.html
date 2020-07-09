@@ -1,12 +1,23 @@
 <!doctype html>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
-<script src="{{ url_for('static', filename='js/papaparse.min.js') }}"></script> 
-<script src="{{ url_for('static', filename='js/functions.js') }}"></script> 
-<script src="{{ url_for('static', filename='js/Chart.bundle.min.js') }}"></script> 
-<link rel=icon href="{{ url_for('static', filename='images/favicon.ico') }}">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Utdelningskollen</title>
+<head>
+    <title>Utdelningskollen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <script src="{{ url_for('static', filename='js/papaparse.min.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/functions.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/Chart.bundle.min.js') }}"></script> 
+    <link rel=icon href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172175469-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-172175469-1');
+    </script>
+</head>
 <h1>Utdelningskollen</h1>
 <div id="input-container">
     <p>Välj utdelningsfil att analysera. Utdelningshistorik finns att nedladda på Avanzas hemsida. Filen används endast lokalt och laddas därmed INTE upp på någon server.</p>
