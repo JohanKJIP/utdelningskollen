@@ -61,6 +61,9 @@ function yearlyDividends(data) {
 
     // draw chart
     var ctx = document.getElementById('yearly-divs').getContext('2d');
+    var gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0.4, 'rgba(142,196,229,1)');
+    gradient.addColorStop(1, 'rgba(30,134,198,1)'); 
     var myBarChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -69,7 +72,7 @@ function yearlyDividends(data) {
               {
                 label: "Utdelning",
                 data: data,
-                backgroundColor: "rgba(98,173,222,1)"
+                backgroundColor: gradient
               }
             ]
           },
@@ -96,6 +99,9 @@ function yearlyDividends(data) {
                         }
                     }
                 },
+                legend: {
+                    onClick: (e) => e.stopPropagation()
+                }
         },
     });
 }
@@ -161,17 +167,20 @@ function movingAverage(data) {
 
     // draw chart
     var ctx = document.getElementById('moving-avg-divs').getContext('2d');
+    var barGradient = ctx.createLinearGradient(0, 0, 0, 400);
+    barGradient.addColorStop(0.4, 'rgba(142,196,229,1)');
+    barGradient.addColorStop(1, 'rgba(30,134,198,1)');   
     var mixedChart = new Chart(ctx, {
         type: 'bar',
         data: {
             datasets: [{
                 label: 'Utdelning',
                 data: datapoints,
-                backgroundColor: "rgba(98,173,222,1)",
+                backgroundColor: barGradient,
             }, {
                 label: '12 månader rullande utdelning',
                 data: movingAvg,
-                borderColor: "rgba(223,87,87,1)",
+                borderColor: 'rgba(231,135,135,1)',
                 backgroundColor: "rgba(223,87,87,0)",
     
                 // Changes this dataset to become a line
@@ -211,6 +220,9 @@ function movingAverage(data) {
                     }
                 }
             },
+            legend: {
+                onClick: (e) => e.stopPropagation()
+            }
         }
     });
 }
@@ -230,6 +242,9 @@ function accumulative(data) {
     }
 
     var ctx = document.getElementById('accumulative').getContext('2d');
+    var gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0.4, 'rgba(142,196,229,1)');
+    gradient.addColorStop(1, 'rgba(30,134,198,1)');  
     var chart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -238,7 +253,9 @@ function accumulative(data) {
               {
                 label: "Total utdelning",
                 data: datapoints,
-                backgroundColor: "rgba(98,173,222,1)",
+                backgroundColor: gradient, 
+                borderColor : "rgba(21,101,151,1)",
+                borderWidth: 1,
                 lineTension: 0,
               }
             ]
@@ -246,6 +263,11 @@ function accumulative(data) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            elements: {
+                point:{
+                    radius: 0
+                }
+            },
             scales: {
                 xAxes: [{
                     type: 'time',
@@ -273,6 +295,9 @@ function accumulative(data) {
                     }
                 }
             },
+            legend: {
+                onClick: (e) => e.stopPropagation()
+            }
         }
     });
 

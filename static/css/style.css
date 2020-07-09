@@ -59,7 +59,7 @@ li > h3{
     font-size: 1em;
     font-weight: 700;
     color: white;
-    background-color: rgb(145, 156, 255);
+    background-image: linear-gradient(rgb(142, 196, 229), rgb(113, 170, 206));
     display: inline-block;
     cursor: pointer;
     padding: 7px;
@@ -68,7 +68,8 @@ li > h3{
 
 .inputfile:focus + label,
 .inputfile + label:hover {
-    background-color: rgb(102, 117, 255);
+    background-image: none;
+    background-color: rgba(30,134,198,1);
 }
 
 .chart {
