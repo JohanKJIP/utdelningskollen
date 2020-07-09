@@ -76,10 +76,6 @@ function yearlyDividends(data) {
         options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                title: {
-                    display: true,
-                    text: 'Utdelning per år',         
-                },
                 scales: { 
                     yAxes: [
                         {
@@ -186,10 +182,6 @@ function movingAverage(data) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            title: {
-                display: true,
-                text: 'Utdelning per månad',         
-            },
             scales: {
                 xAxes: [{
                     type: 'time',
