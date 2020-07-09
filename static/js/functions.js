@@ -17,6 +17,7 @@ function parseFile(file) {
         complete: function(results) {
             yearlyDividends(results['data']);
             movingAverage(results['data']);
+            accumulative(results['data']);
         }
     });
 }
@@ -32,8 +33,7 @@ function round(number) {
 function yearlyDividends(data) {    
     // calculate data
     var years = {};
-    for (var i = 0; i < data.length; i++) {
-        if (i == 0) continue;
+    for (var i = 1; i < data.length; i++) {
         var row = data[i];
         // break at the end of the data 
         if (row.length != 10) break;
@@ -90,8 +90,7 @@ function yearlyDividends(data) {
  */
 function sumMonth(data) {
     result = {};
-    for (var i = 0; i < data.length; i++) {
-        if (i == 0) continue;
+    for (var i = 1; i < data.length; i++) {
         var row = data[i];
         // break at the end of the data 
         if (row.length != 10) break;
@@ -184,4 +183,48 @@ function movingAverage(data) {
             }
         }
     });
+}
+
+function accumulative(data) {
+    var labels = [];
+    var datapoints = [];
+    var sum = 0;
+    for (var i = data.length-2; i > 0; i--) {
+        var row = data[i];
+
+        var date = new Date(Date.parse(row[0]));
+        var amount = parseFloat(row[6].replace(",", "."));
+        labels.push(date);
+        sum += amount;
+        datapoints.push({t:date, y:round(sum)});
+    }
+
+    var ctx = document.getElementById('accumulative').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
+              {
+                label: "Total utdelning",
+                data: datapoints,
+                backgroundColor: "rgba(98,173,222,1)",
+                lineTension: 0,
+              }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [{
+                    type: 'time',
+                    time: {
+                        unit: 'month'
+                    }
+                }]
+            }
+        }
+    });
+
 }
