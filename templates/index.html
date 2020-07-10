@@ -25,24 +25,36 @@
     <input type="file" id="myfile" name="myfile" class="inputfile"> 
     <label for="myfile"> Välj  Fil </label>
 </div>
-
+<div id="panel-container">
+    <ul>
+        <li>
+            <h4>Insamlade utdelningar</h4>
+        </li>
+        <li>
+            <h4>Utdelningstillväxt</h4>
+        </li>
+        <li>
+            <h4>Totala utdelningar</h4>
+        </li>
+    </ul>
+</div>
 <div id="chart-container">
     <ul>
         <li>
-            <h3>Utdelning per år</h3>
-            <div class="chart-container">
+            <h4>Utdelning per år</h4>
+            <div class="chart-item">
                 <canvas class="chart" id="yearly-divs" width="200" height="350"></canvas>
             </div>
         </li>
         <li>
-            <h3>12 månader rullande utdelning</h3>
-            <div class="chart-container">
+            <h4>12 månader rullande utdelning</h4>
+            <div class="chart-item">
                 <canvas class="chart" id="moving-avg-divs" width="200" height="350"></canvas>
             </div>
         </li>
         <li>
-            <h3>Ackumulativ utdelning</h3>
-            <div class="chart-container">
+            <h4>Ackumulativ utdelning</h4>
+            <div class="chart-item">
                 <canvas class="chart" id="accumulative" width="200" height="350px"></canvas>
             </div>
         </li>

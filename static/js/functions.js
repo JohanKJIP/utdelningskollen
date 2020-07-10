@@ -5,7 +5,10 @@ window.onload = function() {
         var fileList = inputElement.files;
         Chart.defaults.global.defaultFontFamily = "'Poppins', sans-serif";
         parseFile(fileList[0]);
+        document.getElementById("panel-container").style.display = "inline";
         document.getElementById("chart-container").style.display = "inline";
+
+        document.getElementById("panel-container").scrollIntoView({ block: 'start',  behavior: 'smooth' });
     }
 }
 
