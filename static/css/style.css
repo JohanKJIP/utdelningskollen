@@ -23,6 +23,7 @@ ul {
     height: 400px;
     width: 70%;
     text-align: left;
+    margin-bottom: 50px;
 }
 
 li {
@@ -74,6 +75,14 @@ li > h3{
 
 .chart {
     padding: 20px 0;
+}
+
+.footer-container {
+    position: absolute;
+    height: 6rem;
+    background-color: grey;
+    color: white;
+    width: 100%;
 }
 
 #input-container {
