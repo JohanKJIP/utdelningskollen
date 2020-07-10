@@ -7,7 +7,6 @@ window.onload = function() {
         parseFile(fileList[0]);
         document.getElementById("panel-container").style.display = "inline";
         document.getElementById("chart-container").style.display = "inline";
-
         document.getElementById("panel-container").scrollIntoView({ block: 'start',  behavior: 'smooth' });
     }
 }
@@ -57,10 +56,22 @@ function yearlyDividends(data) {
     }
     keys.sort();
 
-    data = [];
+    var data = [];
+    var total = 0;
     for (const key of keys) {
-        var value = round(years[key]);
-        data.push(value);
+        var value = years[key];
+        total += value
+        data.push(round(value));
+    }
+
+    // update panels
+    document.getElementById("total-divs").innerHTML = round(total).toLocaleString("se-SE") + " SEK";
+    var dividendGrowth = round((years[keys[keys.length-1]]-years[keys[keys.length-2]])/years[keys[keys.length-2]])*100;
+    document.getElementById("div-growth").innerHTML = dividendGrowth.toLocaleString("se-SE") + "%";
+    if (dividendGrowth >= 0) {
+        document.getElementById("div-growth").classList.add("green");
+    } else {
+        document.getElementById("div-growth").classList.add("red");
     }
 
     // draw chart
@@ -136,6 +147,7 @@ function sumMonth(data) {
  */
 function movingAverage(data) {
     var result = sumMonth(data);
+
     var labels = [];
     var datapoints = [];
 
@@ -145,6 +157,13 @@ function movingAverage(data) {
         keys.push(key);
     }
     keys.sort();
+
+    // update each month card
+    var current_year = result[keys[keys.length-1]];
+    var currentTime = new Date();
+    var currentMonth = currentTime.getMonth();
+    var averageMonth = round(current_year.reduce(function(a, b) { return a + b; }, 0)/(currentMonth+1));
+    document.getElementById("div-average-month").innerHTML = averageMonth.toLocaleString("se-SE") + " SEK";
 
     for (const key of keys) {
         var months = result[key];
@@ -184,7 +203,7 @@ function movingAverage(data) {
             }, {
                 label: '12 månader rullande utdelning',
                 data: movingAvg,
-                borderColor: 'rgba(231,135,135,1)',
+                borderColor: 'rgb(207, 79, 79)',
                 backgroundColor: "rgba(223,87,87,0)",
     
                 // Changes this dataset to become a line

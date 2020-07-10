@@ -1,7 +1,7 @@
 <!doctype html>
 <head>
     <title>Utdelningskollen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
     <script src="{{ url_for('static', filename='js/papaparse.min.js') }}"></script> 
     <script src="{{ url_for('static', filename='js/functions.js') }}"></script> 
@@ -29,12 +29,21 @@
     <ul>
         <li>
             <h4>Insamlade utdelningar</h4>
+            <div class="panel-content">
+                <span id="total-divs" class="panel-number green"></span>
+            </div>
         </li>
         <li>
-            <h4>Utdelningstillväxt</h4>
+            <h4>Utdelningstillväxt i år</h4>
+            <div class="panel-content">
+                <span id="div-growth" class="panel-number"></span><small>jfr. föregående år</small>
+            </div>
         </li>
         <li>
-            <h4>Totala utdelningar</h4>
+            <h4>Snitt per månad i år</h4>
+            <div class="panel-content">
+                <span id="div-average-month" class="panel-number green"></span>
+            </div>
         </li>
     </ul>
 </div>
