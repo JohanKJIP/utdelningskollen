@@ -58,11 +58,11 @@ li > h3{
     margin: 0 auto;
     font-size: 1em;
     font-weight: 700;
-    color: white;
-    background-image: linear-gradient(rgb(142, 196, 229), rgb(113, 170, 206));
+    color: #ffffff;
+    background-image: linear-gradient(rgb(102, 174, 219), rgb(77, 146, 189));
     display: inline-block;
     cursor: pointer;
-    padding: 7px;
+    padding: 8px 12px;
     border-radius: 5px;
 }
 

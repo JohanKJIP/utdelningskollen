@@ -3,6 +3,7 @@ window.onload = function() {
     var inputElement = document.getElementById("myfile");
     inputElement.onchange = function(event) {
         var fileList = inputElement.files;
+        Chart.defaults.global.defaultFontFamily = "'Poppins', sans-serif";
         parseFile(fileList[0]);
         document.getElementById("chart-container").style.display = "inline";
     }
@@ -243,8 +244,8 @@ function accumulative(data) {
 
     var ctx = document.getElementById('accumulative').getContext('2d');
     var gradient = ctx.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0.4, 'rgba(142,196,229,1)');
-    gradient.addColorStop(1, 'rgba(30,134,198,1)');  
+    gradient.addColorStop(0.4, 'rgba(142,196,229,0.3)');
+    gradient.addColorStop(1, 'rgba(30,134,198,0.7)');  
     var chart = new Chart(ctx, {
         type: 'line',
         data: {
