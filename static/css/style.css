@@ -10,7 +10,7 @@ html, body {
 }
 
 h1 {
-    padding: 20px;
+    padding: 0 20px;
     display: table;
     margin: 0 10px;
 }
@@ -118,7 +118,7 @@ li > h4{
 
 #input-container {
     display: table;
-    margin: 50px auto;
+    margin: 40px auto;
     padding: 20px;
     width: 30%;
     height: 100px;
@@ -171,12 +171,12 @@ li > h4{
 }
 
 /* NAVBAR */
+
 #navbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0 15px;
     overflow: hidden;
-    background-color: #333;
 }
 
 #navbar li {
@@ -184,17 +184,26 @@ li > h4{
 }
 
 #navbar a:hover {
-    background-color: #111;
+    background-color: rgb(197, 197, 197);
 }
 
 #navbar a {
     display: block;
-    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    color: #444b5c;
+    line-height: 75px;
 }
 
 .active {
     background-color: #4CAF50;
+}
+
+.footer-container {
+    text-align: center;
+}
+
+.footer-container small {
+    line-height: 90px;
 }
