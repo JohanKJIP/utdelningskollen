@@ -12,16 +12,16 @@ html, body {
 h1 {
     padding: 20px;
     display: table;
-    margin: 0 auto;
+    margin: 0 10px;
 }
 
-ul {
+#chart-container ul, #panel-container ul {
     display: table;
     margin: 0 auto;
     list-style:none;
 }
 
-li {
+#chart-container li, #panel-container li {
     box-shadow: 0 5px 10px rgba(154,160,195,0.05), 0 15px 40px rgba(166,173,201,0.2);
     border-radius: 3px;
     background-color: white;
@@ -118,9 +118,7 @@ li > h4{
 
 #input-container {
     display: table;
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 50px;
+    margin: 50px auto;
     padding: 20px;
     width: 30%;
     height: 100px;
@@ -171,4 +169,32 @@ li > h4{
 .red {
     border-left: solid 3px rgb(207, 79, 79);
 }
-  
+
+/* NAVBAR */
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 15px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+#navbar li {
+    float: left;
+}
+
+#navbar a:hover {
+    background-color: #111;
+}
+
+#navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.active {
+    background-color: #4CAF50;
+}
