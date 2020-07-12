@@ -12,11 +12,15 @@ window.onload = function() {
             window.accumulativeChart.destroy();
             window.monthlyChart.destroy();
         }
-    
-        parseFile(fileList[0]);
-        document.getElementById("panel-container").style.display = "inline";
-        document.getElementById("chart-container").style.display = "inline";
-        document.getElementById("panel-container").scrollIntoView({ block: 'start',  behavior: 'smooth' });
+        
+        var file = fileList[0];
+        if (file.type == 'text/csv') {
+            parseFile(file);
+        } else {
+            document.getElementById("panel-container").style.display = "none";
+            document.getElementById("chart-container").style.display = "none";
+            alert('Ogiltig fil inmatad! Välj en csv fil.');
+        }
     }
 }
 
@@ -27,9 +31,20 @@ window.onload = function() {
 function parseFile(file) {
     Papa.parse(file, {
         complete: function(results) {
-            yearlyDividends(results['data']);
-            movingAverage(results['data']);
-            accumulative(results['data']);
+            var firstRow = results['data'][0];
+            
+            if (typeof firstRow != 'undefined' && firstRow[0] == 'Datum' && firstRow[1] == 'Konto') {
+                yearlyDividends(results['data']);
+                movingAverage(results['data']);
+                accumulative(results['data']);
+                document.getElementById("panel-container").style.display = "inline";
+                document.getElementById("chart-container").style.display = "inline";
+                document.getElementById("panel-container").scrollIntoView({ block: 'start',  behavior: 'smooth' });
+            } else {
+                document.getElementById("panel-container").style.display = "none";
+                document.getElementById("chart-container").style.display = "none";
+                alert('Ogiltig fil inmatad! Är du säker på att du valt rätt fil?');
+            }
         }
     });
 }
