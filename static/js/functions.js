@@ -288,7 +288,7 @@ function accumulative(data) {
             maintainAspectRatio: false,
             elements: {
                 point:{
-                    radius: 0
+                    radius: 2
                 }
             },
             scales: {
