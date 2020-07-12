@@ -4,6 +4,15 @@ window.onload = function() {
     inputElement.onchange = function(event) {
         var fileList = inputElement.files;
         Chart.defaults.global.defaultFontFamily = "'Poppins', sans-serif";
+
+        // if changing data file without reloading page
+        // destroy the preivous graphs or visual error occur
+        if (typeof window.yearlyChart !== 'undefined') {
+            window.yearlyChart.destroy();
+            window.accumulativeChart.destroy();
+            window.monthlyChart.destroy();
+        }
+    
         parseFile(fileList[0]);
         document.getElementById("panel-container").style.display = "inline";
         document.getElementById("chart-container").style.display = "inline";
@@ -119,6 +128,7 @@ function yearlyDividends(data) {
                 }
         },
     });
+    window.yearlyChart = myBarChart;
 }
 
 /**
@@ -248,6 +258,7 @@ function movingAverage(data) {
             }
         }
     });
+    window.monthlyChart = mixedChart;
 }
 
 function accumulative(data) {
@@ -323,5 +334,5 @@ function accumulative(data) {
             }
         }
     });
-
+    window.accumulativeChart = chart;
 }
