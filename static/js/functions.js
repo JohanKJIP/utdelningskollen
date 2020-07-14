@@ -6,17 +6,19 @@ window.onload = function() {
         Chart.defaults.global.defaultFontFamily = "'Poppins', sans-serif";
 
         // if changing data file without reloading page
-        // destroy the preivous graphs or visual error occur
+        // destroy the previous graphs or visual error occur
         if (typeof window.yearlyChart !== 'undefined') {
             window.yearlyChart.destroy();
             window.accumulativeChart.destroy();
             window.monthlyChart.destroy();
+            window.monthlyComparisonChart.destroy();
         }
         
         var file = fileList[0];
         if (file.type == 'text/csv') {
             parseFile(file);
         } else {
+            // don't show empty graphs if invalid file
             document.getElementById("panel-container").style.display = "none";
             document.getElementById("chart-container").style.display = "none";
             alert('Ogiltig fil inmatad! Välj en csv fil.');
@@ -33,14 +35,17 @@ function parseFile(file) {
         complete: function(results) {
             var firstRow = results['data'][0];
             
+            // basic check that correct file was inserted
             if (typeof firstRow != 'undefined' && firstRow[0] == 'Datum' && firstRow[1] == 'Konto') {
                 yearlyDividends(results['data']);
                 movingAverage(results['data']);
                 accumulative(results['data']);
+                monthComparisonByYear(results['data']);
                 document.getElementById("panel-container").style.display = "inline";
                 document.getElementById("chart-container").style.display = "inline";
                 document.getElementById("panel-container").scrollIntoView({ block: 'start',  behavior: 'smooth' });
             } else {
+                // don't show empty graphs if invalid file
                 document.getElementById("panel-container").style.display = "none";
                 document.getElementById("chart-container").style.display = "none";
                 alert('Ogiltig fil inmatad! Är du säker på att du valt rätt fil?');
@@ -49,6 +54,10 @@ function parseFile(file) {
     });
 }
 
+/**
+ * Round number to two decimal points.
+ * @param {*} number 
+ */
 function round(number) {
     return Math.round((number + Number.EPSILON) * 100) / 100;
 }
@@ -88,7 +97,7 @@ function yearlyDividends(data) {
         data.push(round(value));
     }
 
-    // update panels
+    // update panels, done here to not calculate same thing twice
     document.getElementById("total-divs").innerHTML = round(total).toLocaleString("se-SE") + " SEK";
     var dividendGrowth = round((years[keys[keys.length-1]]-years[keys[keys.length-2]])/years[keys[keys.length-2]])*100;
     document.getElementById("div-growth").innerHTML = dividendGrowth.toLocaleString("se-SE") + "%";
@@ -183,7 +192,7 @@ function movingAverage(data) {
     }
     keys.sort();
 
-    // update each month card
+    // update each month panel, done here to not calculate same thing twice
     var current_year = result[keys[keys.length-1]];
     var currentTime = new Date();
     var currentMonth = currentTime.getMonth();
@@ -276,6 +285,10 @@ function movingAverage(data) {
     window.monthlyChart = mixedChart;
 }
 
+/**
+ * Display accumulative dividends received.
+ * @param {*} data 
+ */
 function accumulative(data) {
     var labels = [];
     var datapoints = [];
@@ -350,4 +363,61 @@ function accumulative(data) {
         }
     });
     window.accumulativeChart = chart;
+}
+
+function monthComparisonByYear(data) {
+    var permonth = sumMonth(data);
+    var datasets = [];
+
+    // sort by year
+    var keys = [];
+    for (var key in permonth) {
+        keys.push(key);
+    }
+    keys.sort();
+
+    for (const key of keys) {
+        datasets.push({
+            label: key,
+            type: "bar",
+            data: permonth[key].map(round),
+            fill: false
+        });
+    }
+    console.log(datasets);
+
+    var ctx = document.getElementById('monthly-comparison').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: datasets
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            barValueSpacing: 20,
+            scales: {
+                yAxes: [
+                    {
+                        ticks: {
+                            callback: function(label, index, labels) {
+                                return label/1000+'k';
+                            }
+                        },
+                    }
+                ],
+            },
+            legend: {
+                onClick: (e) => e.stopPropagation()
+            },
+            plugins: {
+                colorschemes: {
+                  scheme: 'tableau.ClassicBlue7'
+                }
+              }
+        }
+    });
+
+    window.monthlyComparisonChart = chart;
 }

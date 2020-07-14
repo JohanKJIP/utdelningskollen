@@ -6,6 +6,7 @@
     <script src="{{ url_for('static', filename='js/papaparse.min.js') }}"></script> 
     <script src="{{ url_for('static', filename='js/functions.js') }}"></script> 
     <script src="{{ url_for('static', filename='js/Chart.bundle.min.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/chartjs-plugin-colorschemes.min.js') }}"></script> 
     <link rel=icon href="{{ url_for('static', filename='images/favicon.ico') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -75,6 +76,12 @@
             <h4>Ackumulativ utdelning</h4>
             <div class="chart-item">
                 <canvas class="chart" id="accumulative" width="200" height="350px"></canvas>
+            </div>
+        </li>
+        <li>
+            <h4>Månadsvis grupppering per år</h4>
+            <div class="chart-item">
+                <canvas class="chart" id="monthly-comparison" width="200" height="350px"></canvas>
             </div>
         </li>
     </ul>
