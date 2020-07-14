@@ -202,7 +202,7 @@ function movingAverage(data) {
     for (const key of keys) {
         var months = result[key];
         for (var i = 0; i < months.length; i++) {
-            var date = new Date(key,i+1,1);
+            var date = new Date(key,i,1);
             labels.push(date);
             datapoints.push({t:date, y:round(months[i])});
         }
@@ -252,7 +252,7 @@ function movingAverage(data) {
                 xAxes: [{
                     type: 'time',
                     time: {
-                        tooltipFormat: 'll',
+                        tooltipFormat: 'MMM YYYY',
                         displayFormats: {
                             quarter: 'MMM YYYY'
                         }
@@ -384,7 +384,6 @@ function monthComparisonByYear(data) {
             fill: false
         });
     }
-    console.log(datasets);
 
     var ctx = document.getElementById('monthly-comparison').getContext('2d');
     var chart = new Chart(ctx, {
