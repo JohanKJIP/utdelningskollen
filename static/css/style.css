@@ -200,6 +200,7 @@ li > h4{
     background-color: grey;
     color: white;
     width: 100%;
+    bottom: 0;
 }
 
 #footer {
@@ -208,4 +209,13 @@ li > h4{
 
 #footer small {
     line-height: 90px;
+}
+
+#content {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 6rem;
 }

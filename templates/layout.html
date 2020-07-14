@@ -18,17 +18,21 @@
         </script>
         {% endblock %}
     </head>
-    <div id="navbar">
-        <ul>
-            <li><h1><a href="/">Utdelningskollen</a></h1></li>
-            <li><a href="/analys">Utdelningsanalys</a></li>
-            <li><a href="/instruktioner">Instruktioner</a></li>
-            <li><a href="/verktyg">Kalkylator</a></li>
-            <li><a href="/faq">FAQ</a></li>
-        </ul> 
-    </div>
     <body>
-        <div id="content">{% block content %}{% endblock %}</div>
-        <div id="footer"><small>&copy; Copyright 2020, Utdelningskollen</small> </div>
+        <div id="content">
+            <div id="navbar">
+                <ul>
+                    <li><h1><a href="/">Utdelningskollen</a></h1></li>
+                    <li><a href="/analys">Utdelningsanalys</a></li>
+                    <li><a href="/instruktioner">Instruktioner</a></li>
+                    <li><a href="/verktyg">Kalkylator</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul> 
+            </div>
+            <div id="content-wrap">
+                {% block content %}{% endblock %}
+            </div>
+            <div id="footer"><small>&copy; Copyright 2020, Utdelningskollen</small> </div>
+        </div>
     </body>
 </html>
