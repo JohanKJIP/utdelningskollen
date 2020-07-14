@@ -170,7 +170,7 @@ function sumMonth(data) {
         if (!(date.getFullYear() in result)) {
             result[date.getFullYear()] = Array(12).fill(0);
         }
-        result[date.getFullYear()][date.getMonth()-1] += parseFloat(row[6].replace(",", "."));
+        result[date.getFullYear()][date.getMonth()] += parseFloat(row[6].replace(",", "."));
     }
     return result;
 }
