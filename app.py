@@ -3,23 +3,26 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
-    return 'todo'
+    return render_template('index.html')
 
 @app.route('/analys')
 def utdelning():
-    return render_template('analys.html')
+    return render_template('divanalysis.html')
 
 @app.route('/faq')
 def faq():
-    return 'todo'
+    return render_template('faq.html')
 
 @app.route('/instruktioner')
 def instructions():
-    return 'todo'
+    return render_template('instructions.html')
+
+@app.route('/verktyg')
+def calculator():
+    return render_template('calculator.html')
 
 @app.errorhandler(404)
 def page_not_found(e):
-    # note that we set the 404 status explicitly
     return render_template('404.html'), 404
 
 if __name__ == '__main__':

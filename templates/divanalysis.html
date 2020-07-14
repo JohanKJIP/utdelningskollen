@@ -1,36 +1,13 @@
-<!doctype html>
-<head>
-    <title>Utdelningskollen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+{% extends "layout.html" %}
+{% block title %}Analys{% endblock %}
+{% block head %}
+    {{ super() }}
     <script src="{{ url_for('static', filename='js/papaparse.min.js') }}"></script> 
     <script src="{{ url_for('static', filename='js/functions.js') }}"></script> 
     <script src="{{ url_for('static', filename='js/Chart.bundle.min.js') }}"></script> 
     <script src="{{ url_for('static', filename='js/chartjs-plugin-colorschemes.min.js') }}"></script> 
-    <link rel=icon href="{{ url_for('static', filename='images/favicon.ico') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172175469-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-172175469-1');
-    </script>
-</head>
-<body>
-<div id="navbar">
-    <ul>
-        <li><h1><a href="/">Utdelningskollen</a></h1></li>
-        <li><a href="/analys">Utdelningsanalys</a></li>
-        <li><a href="/portfölj">Portföljsanalys</a></li>
-        <li><a href="/instructions">Instruktioner</a></li>
-        <li><a href="/verktyg">Kalkylator</a></li>
-        <li><a href="/faq">FAQ</a></li>
-    </ul> 
-</div>
-
+{% endblock %}
+{% block content %}
 <div id="input-container">
     <p>Välj utdelningsfil att analysera. Utdelningshistorik finns att ladda ner på Avanzas hemsida. Filen används endast lokalt och laddas därmed INTE upp på någon server.</p>
     <input type="file" id="myfile" name="myfile" class="inputfile"> 
@@ -86,6 +63,4 @@
         </li>
     </ul>
 </div>
-    
-</div>
-</body>
+{% endblock %}
