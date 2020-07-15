@@ -21,7 +21,7 @@ h1 {
     list-style:none;
 }
 
-#chart-container li, #panel-container li {
+#chart-container li, #panel-container li, .text-box {
     box-shadow: 0 5px 10px rgba(154,160,195,0.05), 0 15px 40px rgba(166,173,201,0.2);
     border-radius: 3px;
     background-color: white;
@@ -218,4 +218,12 @@ li > h4{
 
 #content-wrap {
     padding-bottom: 6rem;
+}
+
+.text-box {
+    width: 70%;
+    display: table;
+    margin: 0 auto;
+    padding: 2.5rem 5rem;
+    margin: 40px auto 100px auto;
 }

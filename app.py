@@ -3,15 +3,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
-    return render_template('index.html')
-
-@app.route('/analys')
-def utdelning():
     return render_template('divanalysis.html')
 
-@app.route('/faq')
-def faq():
-    return render_template('faq.html')
+#@app.route('/analys')
+#def utdelning():
+#    return render_template('divanalysis.html')
 
 @app.route('/instruktioner')
 def instructions():

@@ -138,6 +138,9 @@ function yearlyDividends(data) {
                         }
                     ]
                 },
+                hover: {
+                    animationDuration: 0
+                },
                 tooltips: {
                     enabled: true,
                     mode: 'single',
@@ -149,6 +152,31 @@ function yearlyDividends(data) {
                 },
                 legend: {
                     onClick: (e) => e.stopPropagation()
+                },
+                // place numbers over bars
+                // TODO: investigate if this is redrawn too much
+                animation: {
+                    duration: 1,
+                    onComplete: function () {
+                        var chartInstance = this.chart,
+                            ctx = chartInstance.ctx;
+                        ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'bottom';
+                        
+                        this.data.datasets.forEach(function (dataset, i) {
+                            var prevData = 0;
+                            var meta = chartInstance.controller.getDatasetMeta(i);
+                            meta.data.forEach(function (bar, index) {
+                                var data = dataset.data[index];
+                                if (prevData != 0) {
+                                    var percentageDiff = (data - prevData)/prevData * 100;  
+                                    ctx.fillText(round(percentageDiff) + "%", bar._model.x, bar._model.y - 5);                       
+                                }
+                                prevData = data;
+                            });
+                        });
+                    }
                 }
         },
     });
