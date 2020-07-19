@@ -94,7 +94,7 @@ a {
 #chart-container {
     display: none;
     text-align: center;
-    margin-bottom: 3em;
+    margin-bottom: 60px;
 }
 
 #chart-container li {
@@ -176,7 +176,7 @@ a {
 }
 
 #content-wrap {
-    padding-bottom: 6rem;
+    padding-bottom: 6em;
 }
 
 /* ============= Colors ============= */
@@ -194,15 +194,15 @@ a {
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
-    body {
-        
+    .panel-content span {
+        line-height: 15vw;
     }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     body {
-        
+        background-color: blue;
     }
 }
 
