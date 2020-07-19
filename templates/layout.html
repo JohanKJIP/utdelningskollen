@@ -20,18 +20,18 @@
         {% endblock %}
     </head>
     <body>
-        <div class="topnav">
-            <a href="/" class="active">Utdelningskollen</a>
-            <div id="myLinks">
-                <a href="/instruktioner">Instruktioner</a>
-                <a href="/verktyg">Kalkylator</a>
-            </div>
-            <a href="javascript:void(0);" class="icon" onclick="hamburger()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
         <!--Content space-->
         <div id="content">
+            <div class="topnav">
+                <a href="/" class="active">Utdelningskollen</a>
+                <div id="myLinks">
+                    <a href="/instruktioner">Instruktioner</a>
+                    <a href="/verktyg">Kalkylator</a>
+                </div>
+                <a href="javascript:void(0);" class="icon" onclick="hamburger()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
             <div id="content-wrap">
                 {% block content %}{% endblock %}
             </div>
