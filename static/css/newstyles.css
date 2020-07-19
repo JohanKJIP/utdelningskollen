@@ -44,9 +44,9 @@ a {
     display: table;
     margin: 0 auto;
     font-size: 1em;
-    font-weight: 700;
+    font-weight: 400;
     color: #ffffff;
-    background-image: linear-gradient(rgb(102, 174, 219), rgb(77, 146, 189));
+    background-color: #444b5c;
     cursor: pointer;
     padding: 8px 12px;
     border-radius: 5px;
@@ -55,7 +55,7 @@ a {
 .inputfile:focus + label,
 .inputfile + label:hover {
     background-image: none;
-    background-color: rgba(30,134,198,1);
+    background-color: #0f6cc4;
 }
 
 /* ============= Panel container styles ============= */
@@ -72,7 +72,7 @@ a {
 
 .panel-content {
     margin: auto 1em;
-    height: 10em;
+    height: 30vw;
     border: solid 1px #f4f4f4;
     border-radius: 5px;
     background-color: #ffffff;
@@ -86,9 +86,31 @@ a {
     margin-left: 10px;
 }
 
+.panel-content h4 {
+    margin: 0.7em;
+}
+
 /* ============= Chart container styles ============= */
 #chart-container {
     display: none;
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+#chart-container li {
+    margin-top: 2em;
+}
+
+.chart-content {
+    margin: auto 1em;
+    height: 70vw;
+    border: solid 1px #f4f4f4;
+    border-radius: 5px;
+    background-color: #ffffff;
+}   
+
+.chart-box {
+    height: 75%;
 }
 
 /* ============= Navbar styles ============= */
