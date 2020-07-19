@@ -1,7 +1,6 @@
 window.onload = function() {  
     var button = document.getElementById("hamburger");
     button.addEventListener("click", hamburger);
-    button.addEventListener("touchstart", hamburger);
 
     // parse if user selects file
     var inputElement = document.getElementById("myfile");
