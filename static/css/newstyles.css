@@ -1,0 +1,199 @@
+/* Extra small devices (portrait phones, less than 576px)
+ No media query since this is the default css for extra small devices */
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    color: #444b5c;
+    margin: 0;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    background-color: #f2f3f7;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar {
+    display: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    color: #444b5c;
+    text-decoration: none; /* no underline */
+}
+
+/* ============= Input container styles ============= */
+#input-container {
+    padding: 2em;
+    text-align: center;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    display: table;
+    margin: 0 auto;
+    font-size: 1em;
+    font-weight: 700;
+    color: #ffffff;
+    background-image: linear-gradient(rgb(102, 174, 219), rgb(77, 146, 189));
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-image: none;
+    background-color: rgba(30,134,198,1);
+}
+
+/* ============= Panel container styles ============= */
+#panel-container {
+    display: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#panel-container li {
+    margin-top: 2em;
+}
+
+.panel-content {
+    margin: auto 1em;
+    height: 10em;
+    border: solid 1px #f4f4f4;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.panel-content span {
+    font-size: 8vw;
+}
+
+.panel-content > small {
+    margin-left: 10px;
+}
+
+/* ============= Chart container styles ============= */
+#chart-container {
+    display: none;
+}
+
+/* ============= Navbar styles ============= */
+/* Style the navigation menu */
+.topnav {
+    overflow: hidden;
+    background-color: #4599e9;
+    position: relative;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+    display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+    background: #444b5c;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+    background-color: #074e91;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+    background-color: #0f6cc4;
+    color: white;
+} 
+
+/* ============= Footer styles ============= */
+#footer {
+    position: absolute;
+    height: 6rem;
+    background-color: #444b5c;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+#footer small {
+    line-height: 90px;
+}
+
+#content {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 6rem;
+}
+
+/* ============= Colors ============= */
+.red {
+    color: #fd6b60;
+}
+
+.blue {
+    color: #009ecf;
+}
+
+.green {
+    color: rgb(40, 146, 40);
+}   
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    body {
+        
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    body {
+        
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    body {
+        
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    body {
+        
+    }
+}

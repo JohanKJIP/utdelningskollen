@@ -4,7 +4,8 @@
         {% block head %}
         <title>{% block title %}{% endblock %} - Utdelningskollen</title>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/newstyles.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel=icon href="{{ url_for('static', filename='images/favicon.ico') }}">
         <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -19,14 +20,18 @@
         {% endblock %}
     </head>
     <body>
-        <div id="content">
-            <div id="navbar">
-                <ul>
-                    <li><h1><a href="/">Utdelningskollen</a></h1></li>
-                    <li><a href="/instruktioner">Instruktioner</a></li>
-                    <li><a href="/verktyg">Kalkylator</a></li>
-                </ul> 
+        <div class="topnav">
+            <a href="/" class="active">Utdelningskollen</a>
+            <div id="myLinks">
+                <a href="/instruktioner">Instruktioner</a>
+                <a href="/verktyg">Kalkylator</a>
             </div>
+            <a href="javascript:void(0);" class="icon" onclick="hamburger()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <!--Content space-->
+        <div id="content">
             <div id="content-wrap">
                 {% block content %}{% endblock %}
             </div>

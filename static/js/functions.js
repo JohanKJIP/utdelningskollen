@@ -26,6 +26,16 @@ window.onload = function() {
     }
 }
 
+/* Toggle between showing and hiding the navigation menu links */
+function hamburger() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+} 
+
 /**
  * Parse Avanza CSV file.
  * @param {*} file 
@@ -41,8 +51,8 @@ function parseFile(file) {
                 movingAverage(results['data']);
                 accumulative(results['data']);
                 monthComparisonByYear(results['data']);
-                document.getElementById("panel-container").style.display = "inline";
-                document.getElementById("chart-container").style.display = "inline";
+                document.getElementById("panel-container").style.display = "block";
+                document.getElementById("chart-container").style.display = "block";
                 document.getElementById("panel-container").scrollIntoView({ block: 'start',  behavior: 'smooth' });
             } else {
                 // don't show empty graphs if invalid file
