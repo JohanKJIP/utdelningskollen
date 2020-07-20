@@ -111,6 +111,7 @@ a {
 
 .chart-box {
     height: 75%;
+    padding: 0 1em;
 }
 
 /* ============= Navbar styles ============= */
@@ -203,20 +204,80 @@ a {
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     body {
-        background-color: blue;
+        background-color: red;
+    }
+
+    #panel-container {
+        margin: 0 2em;
+    }
+
+    #panel-container ul {
+        display: flex;
+    }
+
+    #panel-container li {
+        flex: 1 1 0px
+    }
+
+    .panel-content {
+        height: 20vw;
+    }
+
+    .panel-content span {
+        font-size: 3vw;
+        line-height: 10vw;
+    }
+
+    #chart-container {
+        margin: 0 2em;
+        margin-bottom: 60px;
+    }
+
+    .chart-content {
+        height: 60vw;
+    }
+
+    .chart-box {
+        height: 80%;
     }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     body {
-        
+        background-color: blue;
+    }
+
+    #panel-container {
+        margin: 0 4em;
+    }
+
+    #chart-container {
+        margin: 0 4em;
+        margin-bottom: 60px;
+    }
+
+    .panel-content {
+        height: 12vw;
+    }
+
+    .panel-content span {
+        font-size: 3vw;
+        line-height: 6vw;
+    }
+
+    .chart-content {
+        height: 50vw;
+    }
+
+    .chart-box {
+        height: 85%;
     }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     body {
-        
+        background-color: green;
     }
 }
