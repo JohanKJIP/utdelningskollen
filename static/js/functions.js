@@ -1,6 +1,5 @@
 window.onload = function() {  
-    var button = document.getElementById("hamburger");
-    button.addEventListener("click", hamburger);
+    document.getElementById("hamburger").addEventListener("touchstart", hamburger);
 
     // parse if user selects file
     var inputElement = document.getElementById("myfile");
@@ -30,7 +29,7 @@ window.onload = function() {
 }
 
 /* Toggle between showing and hiding the navigation menu links */
-function hamburger(event) {
+function hamburger() {
     event.preventDefault();
     var x = document.getElementById("myLinks");
     if (x.style.display === "block") {

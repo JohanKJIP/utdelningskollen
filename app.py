@@ -1,5 +1,7 @@
 from flask import Flask, escape, request, render_template, make_response, redirect, url_for
+from flask_fontawesome import FontAwesome
 app = Flask(__name__)
+fa = FontAwesome(app)
 
 @app.route('/')
 def main():
