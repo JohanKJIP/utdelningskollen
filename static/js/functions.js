@@ -1,5 +1,7 @@
 window.onload = function() {  
-    document.getElementById("hamburger").addEventListener("touchstart", hamburger);
+    var button = document.getElementById("hamburger");
+    button.addEventListener("touchstart", hamburger);
+    button.addEventListener("click", hamburger);
 
     // parse if user selects file
     var inputElement = document.getElementById("myfile");
@@ -29,14 +31,15 @@ window.onload = function() {
 }
 
 /* Toggle between showing and hiding the navigation menu links */
-function hamburger() {
-    event.preventDefault();
+function hamburger(event) {
     var x = document.getElementById("myLinks");
     if (x.style.display === "block") {
         x.style.display = "none";
     } else {
         x.style.display = "block";
     }
+    event.stopPropagation();
+    event.preventDefault();
 } 
 
 /**
