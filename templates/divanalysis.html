@@ -3,7 +3,6 @@
 {% block head %}
     {{ super() }}
     <script src="{{ url_for('static', filename='js/papaparse.min.js') }}"></script> 
-    <script src="{{ url_for('static', filename='js/functions.js') }}"></script> 
     <script src="{{ url_for('static', filename='js/Chart.bundle.min.js') }}"></script> 
     <script src="{{ url_for('static', filename='js/chartjs-plugin-colorschemes.min.js') }}"></script> 
 {% endblock %}
@@ -16,21 +15,21 @@
 <div id="panel-container">
     <ul>
         <li>
-            <h4>Insamlade utdelningar</h4>
             <div class="panel-content">
-                <span id="total-divs" class="panel-number green"></span>
+                <h4>Insamlade utdelningar</h4>
+                <span id="total-divs" class="panel-number blue"></span>
             </div>
         </li>
         <li>
-            <h4>Utdelningstillväxt i år</h4>
             <div class="panel-content">
-                <span id="div-growth" class="panel-number"></span><small>jfr. föregående år</small>
+                <h4>Utdelningstillväxt i år</h4>
+                <span id="div-growth" class="panel-number red"></span><small>jfr. föregående år</small>
             </div>
         </li>
         <li>
-            <h4>Snitt per månad i år</h4>
             <div class="panel-content">
-                <span id="div-average-month" class="panel-number green"></span>
+                <h4>Snitt per månad i år</h4>
+                <span id="div-average-month" class="panel-number blue"></span>
             </div>
         </li>
     </ul>
@@ -38,27 +37,35 @@
 <div id="chart-container">
     <ul>
         <li>
-            <h4>Utdelning per år</h4>
-            <div class="chart-item">
-                <canvas class="chart" id="yearly-divs" width="200" height="350"></canvas>
+            <div class="chart-content">
+                <h4>Utdelning per år</h4>
+                <div class="chart-box">
+                    <canvas class="chart" id="yearly-divs" width="200" height="350"></canvas>
+                </div>
             </div>
         </li>
         <li>
-            <h4>12 månader rullande utdelning</h4>
-            <div class="chart-item">
-                <canvas class="chart" id="moving-avg-divs" width="200" height="350"></canvas>
+            <div class="chart-content">
+                <h4>12 månader rullande utdelning</h4>
+                <div class="chart-box">
+                    <canvas class="chart" id="moving-avg-divs" width="200" height="350"></canvas>
+                </div>
             </div>
         </li>
         <li>
-            <h4>Ackumulativ utdelning</h4>
-            <div class="chart-item">
-                <canvas class="chart" id="accumulative" width="200" height="350px"></canvas>
+            <div class="chart-content">
+                <h4>Ackumulativ utdelning</h4>
+                <div class="chart-box">
+                    <canvas class="chart" id="accumulative" width="200" height="350px"></canvas>
+                </div>
             </div>
         </li>
         <li>
-            <h4>Månadsvis utdelning per år</h4>
-            <div class="chart-item">
-                <canvas class="chart" id="monthly-comparison" width="200" height="350px"></canvas>
+            <div class="chart-content">
+                <h4>Månadsvis utdelning per år</h4>
+                <div class="chart-box">
+                    <canvas class="chart" id="monthly-comparison" width="200" height="350px"></canvas>
+                </div>
             </div>
         </li>
     </ul>

@@ -3,10 +3,12 @@
     <head>
         {% block head %}
         <title>{% block title %}{% endblock %} - Utdelningskollen</title>
+        {{ fontawesome_html() }}
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/newstyles.css')}}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel=icon href="{{ url_for('static', filename='images/favicon.ico') }}">
+        <script src="{{ url_for('static', filename='js/functions.js') }}"></script> 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172175469-1"></script>
         <script>
@@ -19,13 +21,22 @@
         {% endblock %}
     </head>
     <body>
+        <!--Content space-->
         <div id="content">
-            <div id="navbar">
-                <ul>
-                    <li><h1><a href="/">Utdelningskollen</a></h1></li>
-                    <li><a href="/instruktioner">Instruktioner</a></li>
-                    <li><a href="/verktyg">Kalkylator</a></li>
-                </ul> 
+            <div class="mobile-topnav">
+                <a href="/" class="active">Utdelningskollen</a>
+                <div id="myLinks">
+                    <a href="/instruktioner">Instruktioner</a>
+                    <a href="/verktyg">Kalkylator</a>
+                </div>
+                <a href="javascript:void(0);" class="icon" id="hamburger">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+            <div class="desktop-topnav">
+                <a href="/" class="large">Utdelningskollen</a>
+                <a href="/instruktioner" class="medium">Instruktioner</a>
+                <a href="/verktyg" class="medium">Kalkylator</a>
             </div>
             <div id="content-wrap">
                 {% block content %}{% endblock %}

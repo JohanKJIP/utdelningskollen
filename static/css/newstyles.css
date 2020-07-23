@@ -1,0 +1,307 @@
+/* Extra small devices (portrait phones, less than 576px)
+ No media query since this is the default css for extra small devices */
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    color: #444b5c;
+    margin: 0;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    background-color: #f2f3f7;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar {
+    display: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    color: #444b5c;
+    text-decoration: none; /* no underline */
+}
+
+.desktop-topnav {
+    display: none;
+}
+
+/* ============= Input container styles ============= */
+#input-container {
+    padding: 2em;
+    text-align: center;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    display: table;
+    margin: 0 auto;
+    font-size: 1em;
+    font-weight: 400;
+    color: #ffffff;
+    background-color: #0f6cc4;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-image: none;
+    background-color: #0b5499;
+}
+
+/* ============= Panel container styles ============= */
+#panel-container {
+    display: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#panel-container li {
+    margin-top: 2em;
+}
+
+.panel-content {
+    margin: auto 1em;
+    height: 30vw;
+    border: solid 1px #f4f4f4;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.panel-content span {
+    font-size: 8vw;
+}
+
+.panel-content > small {
+    margin-left: 10px;
+}
+
+.panel-content h4 {
+    margin: 0.7em;
+}
+
+/* ============= Chart container styles ============= */
+#chart-container {
+    display: none;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+#chart-container li {
+    margin-top: 2em;
+}
+
+.chart-content {
+    margin: auto 1em;
+    height: 70vw;
+    border: solid 1px #f4f4f4;
+    border-radius: 5px;
+    background-color: #ffffff;
+}   
+
+.chart-box {
+    height: 75%;
+    padding: 0 1em;
+}
+
+/* ============= Navbar styles ============= */
+/* Style the navigation menu */
+.mobile-topnav {
+    overflow: hidden;
+    background-color: #4599e9;
+    position: relative;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.mobile-topnav #myLinks {
+    display: none;
+}
+
+/* Style navigation menu links */
+.mobile-topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}
+
+/* Style the hamburger menu */
+.mobile-topnav a.icon {
+    background: #444b5c;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+/* Add a grey background color on mouse-over */
+.mobile-topnav a:hover {
+    background-color: #074e91;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+    background-color: #0f6cc4;
+    color: white;
+} 
+
+/* ============= Footer styles ============= */
+#footer {
+    position: absolute;
+    height: 6rem;
+    background-color: #444b5c;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+#footer small {
+    line-height: 90px;
+}
+
+#content {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 6em;
+}
+
+/* ============= Colors ============= */
+.red {
+    color: #fd6b60;
+}
+
+.blue {
+    color: #009ecf;
+}
+
+.green {
+    color: rgb(40, 146, 40);
+}   
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    .panel-content span {
+        line-height: 15vw;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #panel-container {
+        margin: 0 2em;
+    }
+
+    #panel-container ul {
+        display: flex;
+    }
+
+    #panel-container li {
+        flex: 1 1 0px
+    }
+
+    .panel-content {
+        height: 20vw;
+    }
+
+    .panel-content span {
+        font-size: 3vw;
+        line-height: 10vw;
+    }
+
+    #chart-container {
+        margin: 0 2em;
+        margin-bottom: 60px;
+    }
+
+    .chart-content {
+        height: 60vw;
+    }
+
+    .chart-box {
+        height: 80%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    #panel-container {
+        margin: 0 4em;
+    }
+
+    #chart-container {
+        margin: 0 4em;
+        margin-bottom: 60px;
+    }
+
+    .panel-content {
+        height: 12vw;
+    }
+
+    .panel-content span {
+        font-size: 3vw;
+        line-height: 6vw;
+    }
+
+    .chart-content {
+        height: 50vw;
+    }
+
+    .chart-box {
+        height: 85%;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .mobile-topnav {
+        display: none;
+    }
+
+    .desktop-topnav {
+        display: block;
+        margin-top: 1rem;
+    }
+
+    .desktop-topnav a {
+        padding-left: 1.5rem;
+        cursor: pointer;
+    }
+
+    .desktop-topnav a:hover {
+        background-color: rgb(231, 231, 231);
+    }
+
+    .large {
+        font-weight: 500;
+        font-size: 30px;
+    }
+
+    .medium {
+        font-weight: 400;
+        font-size: 20px;
+    }
+
+    #input-container {
+        margin: 0 300px;
+    }
+}

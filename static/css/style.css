@@ -185,7 +185,7 @@ li > h4{
     padding: 14px 16px;
     text-decoration: none;
     color: #444b5c;
-    line-height: 75px;
+    line-height: 10vw;
 }
 
 .active {
