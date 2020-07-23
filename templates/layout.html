@@ -23,7 +23,7 @@
     <body>
         <!--Content space-->
         <div id="content">
-            <div class="topnav">
+            <div class="mobile-topnav">
                 <a href="/" class="active">Utdelningskollen</a>
                 <div id="myLinks">
                     <a href="/instruktioner">Instruktioner</a>
@@ -32,6 +32,11 @@
                 <a href="javascript:void(0);" class="icon" id="hamburger">
                     <i class="fa fa-bars"></i>
                 </a>
+            </div>
+            <div class="desktop-topnav">
+                <a href="/" class="large">Utdelningskollen</a>
+                <a href="/instruktioner" class="medium">Instruktioner</a>
+                <a href="/verktyg" class="medium">Kalkylator</a>
             </div>
             <div id="content-wrap">
                 {% block content %}{% endblock %}

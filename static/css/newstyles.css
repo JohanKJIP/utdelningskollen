@@ -25,6 +25,10 @@ a {
     text-decoration: none; /* no underline */
 }
 
+.desktop-topnav {
+    display: none;
+}
+
 /* ============= Input container styles ============= */
 #input-container {
     padding: 2em;
@@ -46,7 +50,7 @@ a {
     font-size: 1em;
     font-weight: 400;
     color: #ffffff;
-    background-color: #444b5c;
+    background-color: #0f6cc4;
     cursor: pointer;
     padding: 8px 12px;
     border-radius: 5px;
@@ -55,7 +59,7 @@ a {
 .inputfile:focus + label,
 .inputfile + label:hover {
     background-image: none;
-    background-color: #0f6cc4;
+    background-color: #0b5499;
 }
 
 /* ============= Panel container styles ============= */
@@ -116,19 +120,19 @@ a {
 
 /* ============= Navbar styles ============= */
 /* Style the navigation menu */
-.topnav {
+.mobile-topnav {
     overflow: hidden;
     background-color: #4599e9;
     position: relative;
 }
 
 /* Hide the links inside the navigation menu (except for logo/home) */
-.topnav #myLinks {
+.mobile-topnav #myLinks {
     display: none;
 }
 
 /* Style navigation menu links */
-.topnav a {
+.mobile-topnav a {
     color: white;
     padding: 14px 16px;
     text-decoration: none;
@@ -137,7 +141,7 @@ a {
 }
 
 /* Style the hamburger menu */
-.topnav a.icon {
+.mobile-topnav a.icon {
     background: #444b5c;
     display: block;
     position: absolute;
@@ -147,7 +151,7 @@ a {
 }
 
 /* Add a grey background color on mouse-over */
-.topnav a:hover {
+.mobile-topnav a:hover {
     background-color: #074e91;
 }
 
@@ -269,7 +273,35 @@ a {
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    body {
-        background-color: green;
+    .mobile-topnav {
+        display: none;
+    }
+
+    .desktop-topnav {
+        display: block;
+        margin-top: 1rem;
+    }
+
+    .desktop-topnav a {
+        padding-left: 1.5rem;
+        cursor: pointer;
+    }
+
+    .desktop-topnav a:hover {
+        background-color: rgb(231, 231, 231);
+    }
+
+    .large {
+        font-weight: 500;
+        font-size: 30px;
+    }
+
+    .medium {
+        font-weight: 400;
+        font-size: 20px;
+    }
+
+    #input-container {
+        margin: 0 300px;
     }
 }
