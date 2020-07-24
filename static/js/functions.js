@@ -125,9 +125,6 @@ function yearlyDividends(data) {
 
     // draw chart
     var ctx = document.getElementById('yearly-divs').getContext('2d');
-    var gradient = ctx.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0.4, 'rgba(142,196,229,1)');
-    gradient.addColorStop(1, 'rgba(30,134,198,1)'); 
     var myBarChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -136,7 +133,7 @@ function yearlyDividends(data) {
               {
                 label: "Utdelning",
                 data: data,
-                backgroundColor: gradient
+                backgroundColor: "#639cff",
               }
             ]
           },
@@ -267,22 +264,21 @@ function movingAverage(data) {
     }
 
     // draw chart
-    var ctx = document.getElementById('moving-avg-divs').getContext('2d');
-    var barGradient = ctx.createLinearGradient(0, 0, 0, 400);
-    barGradient.addColorStop(0.4, 'rgba(142,196,229,1)');
-    barGradient.addColorStop(1, 'rgba(30,134,198,1)');   
+    var ctx = document.getElementById('moving-avg-divs').getContext('2d'); 
     var mixedChart = new Chart(ctx, {
         type: 'bar',
         data: {
             datasets: [{
                 label: 'Utdelning',
                 data: datapoints,
-                backgroundColor: barGradient,
+                backgroundColor: "#639cff",
             }, {
                 label: '12 månader rullande utdelning',
                 data: movingAvg,
-                borderColor: 'rgb(207, 79, 79)',
-                backgroundColor: "rgba(223,87,87,0)",
+                borderColor: '#00c281',
+                backgroundColor: "#f8fdfb",
+                pointBorderColor: "#00c281",
+                pointBackgroundColor: "#f8fdfb",
     
                 // Changes this dataset to become a line
                 type: 'line'
@@ -347,10 +343,7 @@ function accumulative(data) {
         datapoints.push({t:date, y:round(sum)});
     }
 
-    var ctx = document.getElementById('accumulative').getContext('2d');
-    var gradient = ctx.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0.4, 'rgba(142,196,229,0.3)');
-    gradient.addColorStop(1, 'rgba(30,134,198,0.7)');  
+    var ctx = document.getElementById('accumulative').getContext('2d'); 
     var chart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -359,9 +352,10 @@ function accumulative(data) {
               {
                 label: "Total utdelning",
                 data: datapoints,
-                backgroundColor: gradient, 
-                borderColor : "rgba(21,101,151,1)",
-                borderWidth: 1,
+                borderColor: '#00c281',
+                backgroundColor: "#f8fdfb",
+                pointBorderColor: "#00c281",
+                pointBackgroundColor: "#f8fdfb",
                 lineTension: 0,
               }
             ]
@@ -369,11 +363,6 @@ function accumulative(data) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            elements: {
-                point:{
-                    radius: 2
-                }
-            },
             scales: {
                 xAxes: [{
                     type: 'time',
@@ -456,7 +445,7 @@ function monthComparisonByYear(data) {
             },
             plugins: {
                 colorschemes: {
-                  scheme: 'tableau.ClassicBlue7'
+                  scheme: 'tableau.Tableau10'
                 }
               }
         }

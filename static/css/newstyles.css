@@ -220,12 +220,12 @@ a {
     }
 
     .panel-content {
-        height: 20vw;
+        height: 15vw;
     }
 
     .panel-content span {
         font-size: 3vw;
-        line-height: 10vw;
+        line-height: 6vw;
     }
 
     #chart-container {
@@ -291,6 +291,20 @@ a {
         background-color: rgb(231, 231, 231);
     }
 
+    #panel-container {
+        margin: 0;
+    }
+
+    .panel-content span {
+        font-size: 3vw;
+        line-height: 4vw;
+    }
+
+    #chart-container {
+        margin: 0;
+        margin-bottom: 60px;
+    }
+  
     .large {
         font-weight: 500;
         font-size: 30px;
@@ -303,5 +317,22 @@ a {
 
     #input-container {
         margin: 0 300px;
+    }
+
+    .panel-content {
+        height: 10vw;
+    }
+
+    .desktop-topnav, #content-wrap {
+        width: 80%;
+        margin: 20px auto 0 auto;
+    }
+
+    .chart-content {
+        height: 30vw;
+    }
+
+    .chart-box {
+        height: 80%;
     }
 }
