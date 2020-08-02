@@ -16,6 +16,7 @@ window.onload = function() {
             window.accumulativeChart.destroy();
             window.monthlyChart.destroy();
             window.monthlyComparisonChart.destroy();
+            window.companyTotalChart.destroy();
         }
         
         var file = fileList[0];
@@ -57,6 +58,7 @@ function parseFile(file) {
                 movingAverage(results['data']);
                 accumulative(results['data']);
                 monthComparisonByYear(results['data']);
+                companyBarChart(results['data']);
                 document.getElementById("panel-container").style.display = "block";
                 document.getElementById("chart-container").style.display = "block";
                 document.getElementById("panel-container").scrollIntoView({ block: 'start',  behavior: 'smooth' });
@@ -452,4 +454,69 @@ function monthComparisonByYear(data) {
     });
 
     window.monthlyComparisonChart = chart;
+}
+
+function companyBarChart(data) {
+    var companies = {};
+    for (var i = 1; i < data.length; i++) {
+        var row = data[i];
+        // break at the end of the data 
+        if (row.length != 10) break;
+        var companyName = row[3];
+        var divAmount = parseFloat(row[6].replace(",", "."));;
+
+        if (companyName in companies) {
+            companies[companyName] += divAmount;
+        } else {
+            companies[companyName] = divAmount;
+        }
+    }
+    sortedCompanies = Object.keys(companies).sort(function(a,b){return companies[a]-companies[b]});
+    var data = [];
+    for (const company of sortedCompanies) {
+        data.push(companies[company]);
+    }
+    sortedCompanies.reverse();
+    data.reverse();
+
+    // draw chart
+    var ctx = document.getElementById('div-per-company').getContext('2d');
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: sortedCompanies,
+            datasets: [
+              {
+                label: "Utdelning",
+                data: data,
+                backgroundColor: "#639cff",
+              }
+            ]
+          },
+        options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { 
+                    yAxes: [
+                        {
+                            ticks: {
+                                callback: function(label, index, labels) {
+                                    return label/1000+'k';
+                                }
+                            },
+                        }
+                    ]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function(tooltipItems, data) { 
+                            return tooltipItems.yLabel + ' SEK';
+                        }
+                    }
+                },
+        },
+    });
+    window.companyTotalChart = myBarChart;
 }
