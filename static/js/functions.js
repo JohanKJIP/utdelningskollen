@@ -442,9 +442,6 @@ function monthComparisonByYear(data) {
                     }
                 ],
             },
-            legend: {
-                onClick: (e) => e.stopPropagation()
-            },
             plugins: {
                 colorschemes: {
                   scheme: 'tableau.Tableau10'
@@ -474,7 +471,7 @@ function companyBarChart(data) {
     sortedCompanies = Object.keys(companies).sort(function(a,b){return companies[a]-companies[b]});
     var data = [];
     for (const company of sortedCompanies) {
-        data.push(companies[company]);
+        data.push(round(companies[company]));
     }
     sortedCompanies.reverse();
     data.reverse();

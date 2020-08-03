@@ -15,9 +15,9 @@ def main():
 def instructions():
     return render_template('instructions.html')
 
-@app.route('/verktyg')
+@app.route('/blogglista')
 def calculator():
-    return render_template('calculator.html')
+    return render_template('bloglist.html')
 
 @app.errorhandler(404)
 def page_not_found(e):
