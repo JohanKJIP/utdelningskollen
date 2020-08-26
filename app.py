@@ -17,7 +17,7 @@ def instructions():
 
 @app.route('/blogglista')
 def calculator():
-    return render_template('bloglist.html')
+    return "todo" # render_template('bloglist.html')
 
 @app.errorhandler(404)
 def page_not_found(e):

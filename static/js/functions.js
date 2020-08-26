@@ -20,14 +20,7 @@ window.onload = function() {
         }
         
         var file = fileList[0];
-        if (file.type == 'text/csv') {
-            parseFile(file);
-        } else {
-            // don't show empty graphs if invalid file
-            document.getElementById("panel-container").style.display = "none";
-            document.getElementById("chart-container").style.display = "none";
-            alert('Ogiltig fil inmatad! Välj en csv fil.');
-        }
+        parseFile(file);
     }
 }
 
@@ -211,7 +204,11 @@ function sumMonth(data) {
 
         var date = new Date(Date.parse(row[0]));
         if (!(date.getFullYear() in result)) {
-            result[date.getFullYear()] = Array(12).fill(0);
+            var length = date.getMonth()+2;
+            if (length > 12) {
+                length = 12;
+            }
+            result[date.getFullYear()] = Array(length).fill(0);
         }
         result[date.getFullYear()][date.getMonth()] += parseFloat(row[6].replace(",", "."));
     }
@@ -242,6 +239,7 @@ function movingAverage(data) {
     var averageMonth = round(current_year.reduce(function(a, b) { return a + b; }, 0)/(currentMonth+1));
     document.getElementById("div-average-month").innerHTML = averageMonth.toLocaleString("se-SE") + " SEK";
 
+    // convert into correct format for charts
     for (const key of keys) {
         var months = result[key];
         for (var i = 0; i < months.length; i++) {
