@@ -1,3 +1,3 @@
 # Utdelningskollen
 
-Website application thet gives the user an overview of their dividends received on the Avanza platform. 
+Website application that gives the user an overview of their dividends received on the Avanza platform. 
