@@ -344,7 +344,7 @@ function accumulative(data) {
     var labels = [];
     var datapoints = [];
     var sum = 0;
-    for (var i = data.length-2; i > 0; i--) {
+    for (var i = data.length-1; i > 0; i--) {
         var row = data[i];
 
         var date = new Date(Date.parse(row[0]));
