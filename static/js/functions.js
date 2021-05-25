@@ -44,14 +44,23 @@ function parseFile(file) {
     Papa.parse(file, {
         complete: function(results) {
             var firstRow = results['data'][0];
+            console.log(firstRow)
             
             // basic check that correct file was inserted
             if (typeof firstRow != 'undefined' && firstRow[0] == 'Datum' && firstRow[1] == 'Konto') {
-                yearlyDividends(results['data']);
-                movingAverage(results['data']);
-                accumulative(results['data']);
-                monthComparisonByYear(results['data']);
-                companyBarChart(results['data']);
+                var dividendRows = [];
+                for (var i = 1; i < results['data'].length; i++) {
+                    // Only use dividend rows
+                    if (results['data'][i][2] == "Utdelning") {
+                        dividendRows.push(results['data'][i]);
+                    }
+                }
+                console.log(dividendRows);
+                yearlyDividends(dividendRows);
+                movingAverage(dividendRows);
+                accumulative(dividendRows);
+                monthComparisonByYear(dividendRows);
+                companyBarChart(dividendRows);
                 document.getElementById("panel-container").style.display = "block";
                 document.getElementById("chart-container").style.display = "block";
                 document.getElementById("panel-container").scrollIntoView({ block: 'start',  behavior: 'smooth' });
@@ -204,7 +213,7 @@ function sumMonth(data) {
 
         var date = new Date(Date.parse(row[0]));
         if (!(date.getFullYear() in result)) {
-            var length = date.getMonth()+2;
+            var length = date.getMonth()+1;
             if (length > 12) {
                 length = 12;
             }
@@ -232,7 +241,7 @@ function movingAverage(data) {
     }
     keys.sort();
 
-    // update each month panel, done here to not calculate same thing twice
+    // update every month panel, done here to not calculate same thing twice
     var current_year = result[keys[keys.length-1]];
     var currentTime = new Date();
     var currentMonth = currentTime.getMonth();
@@ -248,6 +257,8 @@ function movingAverage(data) {
             datapoints.push({t:date, y:round(months[i])});
         }
     }
+    //last_year = keys[keys.length-1]
+    
 
     var movingAvg = [];
     var factor = 12
@@ -296,7 +307,7 @@ function movingAverage(data) {
                         displayFormats: {
                             quarter: 'MMM YYYY'
                         }
-                    }
+                    },
                 }],
                 yAxes: [
                     {
